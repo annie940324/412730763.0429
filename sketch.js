@@ -10,11 +10,13 @@ function setup() {
   captureGraphics=translate(capture_width,0)
   captureGraphics.scale(-1,1)
    captureGraphics.hide()
+   //
 }
 
 function draw() {
   background(220);
   noStroke()
+  span = 5+map(mouseX,0,width,0,20)
   push()
   translate(width/2-capture_width/2, height/2-capture_height) //把原點移到(width/2-160, height/2-120)
   captureGraphics.image(capture,0,0) // 在0,0
@@ -23,6 +25,7 @@ function draw() {
       var pixel = captureGraphics.get(x,y)
       fill(pixel)
       rect(x,y,span)
+      ellipse(x,y,span)
     }
   }
   pop()
